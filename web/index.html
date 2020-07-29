@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp Schedular</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1 id="app">Whatsapp Schedular</h1>
+    <div class="alert alert-success" id="success-alert">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>Success! </strong> Message has been scheduled!
+    </div>
+    <form>
+        <div class="top-data">
+            <input type="text" name="rcname" id="rcname" autocomplete="off" placeholder="Reciever Name">
+            <input type="time" name="tm" autocomplete="off" id="tm">
+        </div>
+        <input type="text" name="msg" id="msg" autocomplete="off" placeholder="Message">
+        <br>
+        <input type="submit" id="sub" value="Schedule" onclick="sendData()">
+    </form>
+    <h5>*Enter reciever name exactly same as saved on your Whatsapp.</h5>
+    <script>
+        $(document).ready(function() {
+            $("#success-alert").hide();
+            $("#sub").click(function showAlert() {
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                    $("#success-alert").slideUp(500);
+                });
+            });
+        });
+        $('#sub').click(function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
