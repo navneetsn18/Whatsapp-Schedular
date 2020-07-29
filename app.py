@@ -3,6 +3,7 @@ import os
 import time
 import eel
 import datetime
+import platform
 from selenium import webdriver
 
 eel.init('web')
@@ -10,7 +11,13 @@ eel.init('web')
 @eel.expose
 def sendDataToPy(rcname,tm,msg):
     print("[Info] Message Scheduled for {} at {}".format(rcname,tm))
-    browser = webdriver.Chrome("./chromedriver")
+    if platform.system()=="Darwin":
+        browser = webdriver.Chrome("./chromedriver_mac")
+    elif platform.system()=="Linux":
+        browser = webdriver.Chrome("./chromedriver_linux")
+    elif platform.system()=="Windows":
+        browser = webdriver.Chrome("./chromedriver.exe")
+
     browser.get("https://web.whatsapp.com/")
     time.sleep(3)
     wait = True
