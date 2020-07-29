@@ -19,7 +19,7 @@ def sendDataToPy(rcname,tm,msg):
         browser = webdriver.Chrome("./chromedriver.exe")
 
     browser.get("https://web.whatsapp.com/")
-    time.sleep(3)
+    time.sleep(30)
     wait = True
     while wait == True:
         if tm != str(datetime.datetime.now().time())[0:5]:
